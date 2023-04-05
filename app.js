@@ -26,6 +26,15 @@ app.get('/contact',function(req,res){
 app.get('/toyota',function(req,res){
     res.render("toyota")
 });
+app.get('/audi',function(req,res){
+    res.render("audi")
+});
+app.get('/bmw',function(req,res){
+    res.render("bmw")
+});
+app.get('/chevrolet',function(req,res){
+    res.render("chevrolet")
+});
 
 
 
