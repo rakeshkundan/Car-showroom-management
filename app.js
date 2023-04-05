@@ -35,6 +35,22 @@ app.get('/bmw',function(req,res){
 app.get('/chevrolet',function(req,res){
     res.render("chevrolet")
 });
+app.get('/toyotaprado',function(req,res){
+    res.render("toyotaprado")
+});
+app.get('/toyotainnova',function(req,res){
+    res.render("toyotainnova")
+});
+app.get('/toyotaetios',function(req,res){
+    res.render("toyotaetios")
+});
+app.get('/toyotacamry',function(req,res){
+    res.render("toyotacamry")
+});
+app.get('/toyotafortuner',function(req,res){
+    res.render("toyotafortuner")
+});
+
 
 
 
