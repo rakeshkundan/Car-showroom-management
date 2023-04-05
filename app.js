@@ -20,6 +20,12 @@ app.get('/services',function(req,res){
 app.get('/about',function(req,res){
     res.render("about");
 });
+app.get('/contact',function(req,res){
+    res.render("contact")
+});
+app.get('/toyota',function(req,res){
+    res.render("toyota")
+});
 
 
 
