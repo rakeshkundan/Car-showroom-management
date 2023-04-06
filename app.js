@@ -20,6 +20,37 @@ app.get('/services',function(req,res){
 app.get('/about',function(req,res){
     res.render("about");
 });
+app.get('/contact',function(req,res){
+    res.render("contact")
+});
+app.get('/toyota',function(req,res){
+    res.render("toyota")
+});
+app.get('/audi',function(req,res){
+    res.render("audi")
+});
+app.get('/bmw',function(req,res){
+    res.render("bmw")
+});
+app.get('/chevrolet',function(req,res){
+    res.render("chevrolet")
+});
+app.get('/toyotaprado',function(req,res){
+    res.render("toyotaprado")
+});
+app.get('/toyotainnova',function(req,res){
+    res.render("toyotainnova")
+});
+app.get('/toyotaetios',function(req,res){
+    res.render("toyotaetios")
+});
+app.get('/toyotacamry',function(req,res){
+    res.render("toyotacamry")
+});
+app.get('/toyotafortuner',function(req,res){
+    res.render("toyotafortuner")
+});
+
 
 
 
