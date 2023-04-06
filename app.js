@@ -50,6 +50,21 @@ app.get('/toyotacamry',function(req,res){
 app.get('/toyotafortuner',function(req,res){
     res.render("toyotafortuner")
 });
+app.get('/audia8',function(req,res){
+    res.render("audia8")
+});
+app.get('/auditt',function(req,res){
+    res.render("auditt")
+});
+app.get('/audiQ7',function(req,res){
+    res.render("audiQ7")
+});
+app.get('/audiRS7',function(req,res){
+    res.render("audiRS7")
+});
+app.get('/audiR8',function(req,res){
+    res.render("audiR8")
+});
 
 
 
