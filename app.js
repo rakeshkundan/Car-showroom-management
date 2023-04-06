@@ -65,6 +65,21 @@ app.get('/audiRS7',function(req,res){
 app.get('/audiR8',function(req,res){
     res.render("audiR8")
 });
+app.get('/bmwi8',function(req,res){
+    res.render("bmwi8")
+});
+app.get('/bmwm3',function(req,res){
+    res.render("bmwm3")
+});
+app.get('/bmwm4',function(req,res){
+    res.render("bmwm4")
+});
+app.get('/bmwx3',function(req,res){
+    res.render("bmwx3")
+});
+app.get('/bmwx6',function(req,res){
+    res.render("bmwx6")
+});
 
 
 
