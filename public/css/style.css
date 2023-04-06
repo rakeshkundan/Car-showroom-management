@@ -28,11 +28,11 @@ img{max-width:100%;}
 }
 body{
 	font-family:comic sans ms;
+	background-color: #E4E9FD;
+  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);
 }
 #slider{
 	height: 85vh;
-	
-
 }
 #carouselExampleIndicators{
 	margin: 0 5%;
@@ -1669,3 +1669,7 @@ font-size: 1.5em;
 	background-color: #023047;
 
 }
+/* *{
+	background-color: #E4E9FD;
+  background-image: -webkit-linear-gradient(65deg, #A683E3 50%, #E4E9FD 50%);!important
+} */
