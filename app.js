@@ -80,6 +80,61 @@ app.get('/bmwx3',function(req,res){
 app.get('/bmwx6',function(req,res){
     res.render("bmwx6")
 });
+app.get('/chevroletEnjoy',function(req,res){
+    res.render("chevroletEnjoy")
+});
+app.get('/chevroletSail',function(req,res){
+    res.render("chevroletSail")
+});
+app.get('/chevroletTrailBlazer',function(req,res){
+    res.render("chevroletTrailBlazer")
+});
+app.get('/chevroletCruze',function(req,res){
+    res.render("chevroletCruze")
+});
+app.get('/chevroletBeat',function(req,res){
+    res.render("chevroletBeat")
+});
+
+app.get('/mitsubishi',function(req,res){
+    res.render("mitsubishi")
+});
+app.get('/mCedia',function(req,res){
+    res.render("mCedia")
+});
+app.get('/mLancer',function(req,res){
+    res.render("mLancer")
+});
+app.get('/montero',function(req,res){
+    res.render("montero")
+});
+app.get('/mOutlander',function(req,res){
+    res.render("mOutlander")
+});
+app.get('/mPajero',function(req,res){
+    res.render("mPajero")
+});
+
+app.get('/AstonMartin',function(req,res){
+    res.render("AstonMartin")
+});
+
+app.get('/amDB11',function(req,res){
+    res.render("amDB11")
+});
+app.get('/amRapide',function(req,res){
+    res.render("amRapide")
+});
+app.get('/amVanquish',function(req,res){
+    res.render("amVanquish")
+});
+app.get('/amVantage',function(req,res){
+    res.render("amVantage")
+});
+app.get('/amVulcan',function(req,res){
+    res.render("amVulcan")
+});
+
 
 
 
