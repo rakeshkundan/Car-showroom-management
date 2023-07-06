@@ -73,32 +73,7 @@
 								<th class="text-center">CAR NAME</th>
 								<th class="text-center">NO. AVAILABLE</th>
 							</tr>
-							<?php
-                                 $db=mysqli_connect("localhost","root","","car_showroom");
-            
-                                    //to get his orders     
-                                    $getcars= mysqli_query($db, "SELECT * from model");
-                                    $numrows3 =mysqli_num_rows($getcars);
-                                    if($numrows3 !=0)
-                                    {
-                                        while($row3=mysqli_fetch_assoc($getcars))
-                                        {
-                                                        $dbmodelno=$row3['model'];
-                                                         $dbmodelname=$row3['name'];
-                                                        
-                                                    // get his car model name
-                                                $getcarnumbers = mysqli_query($db, "SELECT * from car where model = '".$dbmodelno."'");
-                                                $numrows2 =mysqli_num_rows($getcarnumbers);
-
-                                                            echo "<tr>" ;
-                                                            echo "<td>$dbmodelno</td>";
-                                                           echo "<td>$dbmodelname</td>";
-                                                           echo "<td> $numrows2</td>";  
-                                                            echo" </tr>";
-                                        }
-                                    }
-                                      
-                            ?>
+							
 						</table>
 
 					</div>

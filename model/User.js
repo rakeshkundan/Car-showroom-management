@@ -13,7 +13,8 @@ var User = new mongoose.Schema({
     },
     password: {
         type: String,
-    }
+    },
+    role:String
 })
   
 User.plugin(passportLocalMongoose);

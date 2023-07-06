@@ -1,15 +1,11 @@
 
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema;
-const src=new Schema({
+const src=new mongoose.Schema({
     src:String
 });
-const Cardetail=new Schema({
-    carCompany:String,
-    carName:{
-        type:String,
-        required:[true,'Please enter the name of your vehicle']
-    },
+const Cardetail=new mongoose.Schema({
+    carName:String,
     route:String,
     carHeading:String,
     avaibality:Number,
@@ -34,7 +30,7 @@ const Cardetail=new Schema({
     images:[src],
     ref:String
 })
-module.export =Schema(Cardetail);
+module.export =mongoose.Schema(Cardetail);
 
 
 

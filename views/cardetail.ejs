@@ -92,7 +92,7 @@
 							   <div id="products">
 								<div class="slides_container" style="margin-left: .8em;border: none;height: max-content;">
                                     <%for(let i=0;i<data.images.length;i++){%>
-                                        <a href="#" target="_blank"><img src=<%=data.images[i].src%> alt=" " height=210px width=560px /></a>
+                                        <a href="#" target="_blank"><img src=<%=data.images[i]%>  alt="Image" height=210px width=560px /></a>
                                     <%}%>
 									<!-- <a href="#" target="_blank"><img src="/images/p-1.jpg" alt=" " height=210px width=560px /></a>
 									<a href="#" target="_blank"><img src="/images/p-2.jpg" alt=" " height=210px width=560px/></a>
@@ -102,7 +102,7 @@
 								</div>
 								<ul class="pagination">
                                     <%for(let i=0;i<data.images.length;i++){%>
-                                        <li><a href="#"><img src=<%=data.images[i].src%> alt=" " /></a></li>
+                                        <li><a href="#"><img src=<%=data.images[i]%> alt="Image" /></a></li>
                                     <%}%>
 
 <!-- 

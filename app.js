@@ -9,8 +9,9 @@ const https=require('https');
 app.set('view engine', 'ejs');
 
   
+const { default: mongoose } = require('mongoose');
 // var express = require("express"),
-    mongoose = require("mongoose"),
+    // mongoose = require("mongoose"),
     passport = require("passport"),
     bodyParser = require("body-parser"),
     LocalStrategy = require("passport-local"),
@@ -22,9 +23,14 @@ const Cardetail=require("./model/cardetail");
 const Admin=require("./model/admin");
 const Query=require("./model/query");
 const car = require('./model/car');
+
+
+
 // var app = express();
 
-mongoose.connect("mongodb://localhost:27017/CarShowroomDB");
+// mongoose.connect("mongodb://localhost:27017/CarShowroomDB");
+mongoose.connect("mongodb+srv://admin-rakesh:Rks887354@cluster0.c3rvdyz.mongodb.net/CarShowroomDB");
+const NewCarDetail=mongoose.model("NewCarDetail",Cardetail);
 
 app.set("view engine", "ejs");
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -49,6 +55,12 @@ passport.deserializeUser(User.deserializeUser());
 app.get("/secret", isLoggedIn, function (req, res) {
     res.render("secret");
 });
+function isAdmin(req, res, next) {
+    // if (req.isAuthenticated() && (req.user.is_admin === 1)) {
+        return next();
+    // }
+    // return res.redirect(403, "/error");
+}
   
 // Showing register form
 app.get("/register", function (req, res) {
@@ -56,6 +68,7 @@ app.get("/register", function (req, res) {
 });
 function isLoggedIn(req, res, next) {
     if (req.isAuthenticated()) return next();
+    else
     res.redirect("/login");
 }
 app.post("/register", async (req, res) => {
@@ -65,7 +78,7 @@ app.post("/register", async (req, res) => {
             res.redirect("/login");
         }
         else{
-            User.register({ username: req.body.username,name:req.body.name}, req.body.password, (err, user) => {
+            User.register({ username: req.body.username,name:req.body.name,role:"customer"}, req.body.password, (err, user) => {
 
                 if (err) {
                     console.log(err);
@@ -134,10 +147,62 @@ app.get('/contact',function(req,res){
 app.get("/admin",(req,res)=>{
     res.render("admin");
 });
+
+
+
+
+
 app.get("/admin/:listname",(req,res)=>{
+    // if(isAdmin(req,res)){
     const listName = req.params.listname;
     res.render(listName);
-})
+    // }
+    // else
+    // res.render("adminlogin");
+});
+app.post("/registercar",(req,res)=>{
+    // if(isAdmin(req,res)){
+        let companyName=req.body.companyname;
+        const newCarDetail=({
+        carName:req.body.carname,
+        route:companyName+req.body.carname,
+        carHeading:req.body.heading,
+        avaibality:req.body.availibility,
+        milage:req.body.milage,
+        fuelType:req.body.fuelType,
+        serviceCost:req.body.serviceCost,
+        tankCapacity:req.body.tankCapacity,
+        engine:req.body.engine,
+        BHP:req.body.BHP,
+        cylinderCount:req.body.cylinderCount,
+        gearCount:req.body.gearCount,
+        tranmission:req.body.tranmission,
+        rearAcVent:req.body.rearAcVent,
+        seatingCapicity:req.body.seatingCapicity,
+        bootSpace:req.body.bootSpace,
+        Abs:req.body.abs,
+        driverAirbag:req.body.driverAirbag,
+        parkingSensor:req.body.parkingSensor,
+        AirBag:req.body.airBag,
+        discription:req.body.description,
+        imgsrc:req.body.imgSrc,
+        images:[req.body.images1,req.body.images2,req.body.images3,req.body.images4],
+        ref:companyName+"/"+companyName+req.body.carname
+        });
+        // console.log(req.body.carname);
+        Car.findOne({ company: companyName}).then((result) => {
+            if (result != null) {
+                // console.log(newCarDetail);
+                result.carType.push(newCarDetail);
+                result.save();
+                res.send('<script>alert("Succesfully Added"); window.location.href = "/admin/adminaddcar"; </script>');
+            }
+            else {
+                res.redirect("/admin");
+            }
+        });
+    // }
+});
 // app.get('/toyota',function(req,res){
 //     res.render("toyota")
 // });
@@ -264,10 +329,10 @@ app.get("/:companyName",(req,res)=>{
         }
     });    
 });
-app.get("/:companyName/:carName",(req,res)=>{
-    const carname=req.params.carName;
+app.get("/:companyName/:route",(req,res)=>{
+    const carname=req.params.route;
     const companyName=req.params.companyName;
-    console.log(carname +" "+companyName);
+    // console.log(carname +" "+companyName);
     Car.findOne({company:companyName}).then(function (result){
         // console.log(result);
         if(result!=null)
@@ -278,7 +343,7 @@ app.get("/:companyName/:carName",(req,res)=>{
                 if(carType[i].route==carname)
                 {
                     flag=false;
-                    // console.log();
+                    // console.log(carType[i].images);
                     res.render("cardetail",{data:carType[i]});
                     break;
                 }
