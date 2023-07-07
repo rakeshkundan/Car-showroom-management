@@ -1,8 +1,9 @@
 
 // User.js
-  
+
 const mongoose = require('mongoose')
 const Schema = mongoose.Schema
+const cardetail = require('./cardetail');
 const passportLocalMongoose = require('passport-local-mongoose');
 var User = new mongoose.Schema({
     name:{
@@ -14,7 +15,8 @@ var User = new mongoose.Schema({
     password: {
         type: String,
     },
-    role:String
+    role:String,
+    cart:[cardetail.Cardetail]
 })
   
 User.plugin(passportLocalMongoose);

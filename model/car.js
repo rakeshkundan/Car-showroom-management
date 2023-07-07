@@ -6,7 +6,7 @@ const Car = new Schema({
     company: {
         type: String
     },
-    carType:[cardetail]
+    carType:[cardetail.Cardetail]
 })
 
   

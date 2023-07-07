@@ -30,7 +30,14 @@ const Cardetail=new mongoose.Schema({
     images:[src],
     ref:String
 })
-module.export =mongoose.Schema(Cardetail);
+
+// module.exports.Cardetail =mongoose.Schema(Cardetail);
+// module.exports.src=mongoose.Schema(src);
+module.exports={
+    Cardetail:mongoose.Schema(Cardetail),
+    Src:mongoose.Schema(src)
+
+}
 
 
 
